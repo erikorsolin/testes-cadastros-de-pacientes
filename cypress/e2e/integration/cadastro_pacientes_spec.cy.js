@@ -132,6 +132,31 @@ describe('Cadastro de Pacientes', () => {
     cy.contains('Salvar').click();
     cy.contains('Telefone residencial inválido').should('be.visible');
   });
+
+
+  it('Realiza um cadastro sem o campo opcional Telefone Residencial', () => {
+    cy.get('input[name="cpf"]').type('71828285102');  
+    cy.get('input[name="cns"]').type('183510903310001'); 
+    cy.get('input[name="nomeCompleto"]').type('João Silva');
+    cy.get('input[name="dataNascimento"]').type('2000-05-20');  
+    cy.get('input[name="sexo"]').type('masculino');
+    cy.get('input[name="telefoneCelular"]').type('(55) 99968-2682');
+    cy.contains('Salvar').click();
+    cy.contains('Cadastro realizado com sucesso!').should('be.visible');
+  });
+
+
+  it('Realiza um cadastro sem o campo opcional Telefone Celular', () => {
+    cy.get('input[name="cpf"]').type('71828285102');  
+    cy.get('input[name="cns"]').type('183510903310001'); 
+    cy.get('input[name="nomeCompleto"]').type('João Silva');
+    cy.get('input[name="dataNascimento"]').type('2000-05-20');  
+    cy.get('input[name="sexo"]').type('masculino');
+    cy.get('input[name="telefoneResidencial"]').type('(24) 3186-4685');
+    cy.contains('Salvar').click();
+    cy.contains('Cadastro realizado com sucesso!').should('be.visible');
+  });
+
 });
 
 
