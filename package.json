@@ -1,0 +1,15 @@
+{
+  "name": "testes-cadastro-de-pacientes",
+  "version": "1.0.0",
+  "description": "Este repositório contém testes automatizados para um site de cadastro de pacientes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.8.0"
+  }
+}
