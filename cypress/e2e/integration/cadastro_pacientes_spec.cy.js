@@ -157,6 +157,13 @@ describe('Cadastro de Pacientes', () => {
     cy.contains('Cadastro realizado com sucesso!').should('be.visible');
   });
 
+
+  it('Realiza um cadastro sem preencher nenhum campo', () => {
+    cy.contains('Salvar').click();
+    cy.contains('Existem campos obrigatórios não preenchidos.').should('be.visible');
+  });
+
+
 });
 
 
