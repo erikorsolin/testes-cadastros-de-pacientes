@@ -45,3 +45,6 @@ npx cypress open
 ```
 
 Isso abrirá a interface do Cypress, onde é possível executar e visualizar os resultados dos testes. Use `e2e`, os testes estarão em `integration` 
+
+## Autor
+##### [Erik Orsolin de Paula](https://github.com/erikorsolin)
