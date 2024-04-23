@@ -1,6 +1,6 @@
 ## Testes para um site de sistema de cadastros
 
-Este repositório contém um projeto de automação de testes para um sistema de cadastro de pacientes como bônus para o desafio de bolsista de QA do [Laboratório Bridge](http://portal.bridge.ufsc.br/) referente a 2024/1. O projeto utiliza Cypress para implementar testes end-to-end.
+Este repositório contém um projeto de automação de testes para um sistema de cadastro de pacientes que foi desenvolvido como bônus para o desafio de bolsista de QA do [Laboratório Bridge](http://portal.bridge.ufsc.br/) referente a 2024/1. O projeto utiliza Cypress para implementar testes end-to-end.
 
 ## Tecnologias Utilizadas
 
