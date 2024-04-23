@@ -4,17 +4,14 @@ describe('Cadastro de Pacientes', () => {
   });
 
   function fillRegisterFields(cpf, cns, nomeCompleto, dataNascimento, sexo, telefoneResidencial, telefoneCelular) {
-    cy.get('input[name="cpf"]').type(cpf);
-    cy.get('input[name="cns"]').type(cns);
-    cy.get('input[name="nomeCompleto"]').type(nomeCompleto);
-    cy.get('input[name="dataNascimento"]').type(dataNascimento);
-    cy.get('input[name="sexo"]').type(sexo);
-    if (telefoneResidencial) {
-      cy.get('input[name="telefoneResidencial"]').type(telefoneResidencial);
-    }
-    if (telefoneCelular) {
-      cy.get('input[name="telefoneCelular"]').type(telefoneCelular);
-    }
+    // ifs para casos de testes em que algum campo não é preenchido
+    if (cpf) {cy.get('input[name="cpf"]').type(cpf);}
+    if (cns) {cy.get('input[name="cns"]').type(cns);}
+    if (nomeCompleto) {cy.get('input[name="nomeCompleto"]').type(nomeCompleto);}
+    if (dataNascimento) {cy.get('input[name="dataNascimento"]').type(dataNascimento);}
+    if (sexo) {cy.get('input[name="sexo"]').type(sexo);}
+    if (telefoneResidencial) {cy.get('input[name="telefoneResidencial"]').type(telefoneResidencial);}
+    if (telefoneCelular) {cy.get('input[name="telefoneCelular"]').type(telefoneCelular);}
     cy.contains('Salvar').click();
   }
 
@@ -94,6 +91,36 @@ describe('Cadastro de Pacientes', () => {
   it('Realiza um cadastro sem preencher nenhum campo', () => {
     cy.contains('Salvar').click();
     cy.contains('Existem campos obrigatórios não preenchidos.').should('be.visible');
+  });
+
+
+  it ('Realiza um cadastro sem o campo CPF', () => {
+    fillRegisterFields(null, '183510903310001', 'João Silva', '2000-05-20', 'masculino', '(24) 3186-4685', '(55) 99968-2682');
+    cy.contains('CPF inválido!').should('be.visible');
+  });
+
+
+  it ('Realiza um cadastro sem o campo CNS', () => {
+    fillRegisterFields('71828285102', null, 'João Silva', '2000-05-20', 'masculino', '(24) 3186-4685', '(55) 99968-2682');
+    cy.contains('CNS inválido!').should('be.visible');
+  });
+
+
+  it ('Realiza um cadastro sem o campo Nome Completo', () => {
+    fillRegisterFields('71828285102', '183510903310001', null, '2000-05-20', 'masculino', '(24) 3186-4685', '(55) 99968-2682');
+    cy.contains('Nome inválido!').should('be.visible');
+  });
+
+
+  it ('Realiza um cadastro sem o campo Data de Nascimento', () => {
+    fillRegisterFields('71828285102', '183510903310001', 'João Silva', null, 'masculino', '(24) 3186-4685', '(55) 99968-2682');
+    cy.contains('Data de nascimento inválida!').should('be.visible');
+  });
+
+
+  it ('Realiza um cadastro sem o campo Sexo', () => {
+    fillRegisterFields('71828285102', '183510903310001', 'João Silva', '2000-05-20', null, '(24) 3186-4685', '(55) 99968-2682');
+    cy.contains('Sexo inválido').should('be.visible');
   });
 
 });
