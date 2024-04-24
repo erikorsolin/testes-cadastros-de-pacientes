@@ -4,8 +4,8 @@ Este repositório contém um projeto de automação de testes para um sistema de
 
 ## Tecnologias Utilizadas
 
-- **Cypress**: Framework de testes end-to-end.
-- **Node.js**: Ambiente de execução JavaScript.
+- **Cypress 13.8.0**: Framework de testes end-to-end.
+- **Node.js 20.12.2**: Ambiente de execução JavaScript.
 
 ## Configuração Inicial
 
